@@ -1,67 +1,78 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import SplashScreen from './components/SplashScreen'
 import HomeScreen from './components/HomeScreen'
 import CategoryScreen from './components/CategoryScreen'
 import ReaderScreen from './components/ReaderScreen'
+import LibraryScreen from './components/LibraryScreen'
+import FavoritesScreen from './components/FavoritesScreen'
+import SettingsScreen from './components/SettingsScreen'
 
-type Screen = 'home' | 'category' | 'reader'
 type Tab = 'home' | 'library' | 'favorites' | 'settings'
 
-const categoryTitles: Record<string, string> = {
-  annual: 'التسبحة السنوية',
-  kiahk: 'التسبحة الكيهكية',
-  feasts: 'تسبحة الأعياد',
-  fasting: 'تسبحة الأصوام',
-  psalmodia: 'الإبصلمودية',
-  hymns: 'الألحان',
-}
-
 export default function App() {
-  const [screen, setScreen] = useState<Screen>('home')
+  const [booted, setBooted] = useState(false)
   const [activeTab, setActiveTab] = useState<Tab>('home')
-  const [selectedCategory, setSelectedCategory] = useState<string>('annual')
-  const [fontSize, setFontSize] = useState(20)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [readerSection, setReaderSection] = useState<{ id: string; page: number } | null>(null)
 
-  const handleFontSizeChange = (delta: number) => {
-    setFontSize((prev) => Math.min(32, Math.max(14, prev + delta)))
+  const handleSplashDone = useCallback(() => setBooted(true), [])
+
+  const openSectionFromLibrary = (categoryId: string, sectionId: string, page = 0) => {
+    setSelectedCategory(categoryId)
+    setReaderSection({ id: sectionId, page })
   }
 
-  const handleCategorySelect = (id: string) => {
-    setSelectedCategory(id)
-    setScreen('category')
-  }
+  if (!booted) return <SplashScreen onDone={handleSplashDone} />
 
-  const handleTabChange = (tab: Tab) => {
-    setActiveTab(tab)
-    if (tab === 'home') setScreen('home')
-  }
-
-  if (screen === 'reader') {
+  if (readerSection) {
     return (
       <ReaderScreen
-        onBack={() => setScreen('category')}
-        fontSize={fontSize}
-        onFontSizeChange={handleFontSizeChange}
+        sectionId={readerSection.id}
+        initialPage={readerSection.page}
+        onBack={() => setReaderSection(null)}
       />
     )
   }
 
-  if (screen === 'category') {
+  if (selectedCategory) {
     return (
       <CategoryScreen
-        categoryTitle={categoryTitles[selectedCategory] ?? 'التسبحة'}
-        onBack={() => setScreen('home')}
-        onOpenReader={() => setScreen('reader')}
-        fontSize={fontSize}
-        onFontSizeChange={handleFontSizeChange}
+        categoryId={selectedCategory}
+        onBack={() => setSelectedCategory(null)}
+        onOpenReader={(id, page) => setReaderSection({ id, page })}
       />
     )
+  }
+
+  if (activeTab === 'library') {
+    return (
+      <LibraryScreen
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        onOpenSection={openSectionFromLibrary}
+      />
+    )
+  }
+
+  if (activeTab === 'favorites') {
+    return (
+      <FavoritesScreen
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        onOpenSection={openSectionFromLibrary}
+      />
+    )
+  }
+
+  if (activeTab === 'settings') {
+    return <SettingsScreen activeTab={activeTab} onTabChange={setActiveTab} />
   }
 
   return (
     <HomeScreen
       activeTab={activeTab}
-      onTabChange={handleTabChange}
-      onCategorySelect={handleCategorySelect}
+      onTabChange={setActiveTab}
+      onCategorySelect={setSelectedCategory}
     />
   )
 }

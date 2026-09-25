@@ -226,3 +226,120 @@ export function IconTranslate({ size = 18, color = 'currentColor' }: { size?: nu
     </svg>
   )
 }
+
+export function IconClose({ size = 20, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <path d="M5 5l10 10M15 5L5 15" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function IconPsalmodia({ size = 24, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      {/* roll / psalter scroll */}
+      <rect x="4" y="3" width="16" height="4" rx="2" stroke={color} strokeWidth="1.8" />
+      <rect x="4" y="17" width="16" height="4" rx="2" stroke={color} strokeWidth="1.8" />
+      <path d="M7 7v10M17 7v10" stroke={color} strokeWidth="1.8" />
+      <path d="M10 10h4M10 13h4" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+    </svg>
+  )
+}
+
+export function IconPause({ size = 24, color = '#080d28' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <rect x="7" y="5" width="3.6" height="14" rx="1.6" fill={color} />
+      <rect x="13.4" y="5" width="3.6" height="14" rx="1.6" fill={color} />
+    </svg>
+  )
+}
+
+export function IconPlay({ size = 24, color = '#080d28' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M8 5.5v13a1 1 0 0 0 1.5.87l11-6.5a1 1 0 0 0 0-1.74l-11-6.5A1 1 0 0 0 8 5.5Z" fill={color} />
+    </svg>
+  )
+}
+
+export function IconCheck({ size = 20, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <path d="M4 10.5l4 4 8-9" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconHeartFilled({ size = 22, color = '#c9a227' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none">
+      <path
+        d="M11 19S3 13.5 3 7.5A4.5 4.5 0 0 1 11 4.8 4.5 4.5 0 0 1 19 7.5C19 13.5 11 19 11 19Z"
+        fill={color}
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function IconBookmarkFilled({ size = 22, color = '#c9a227' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none">
+      <path d="M5 3h12v16l-6-4-6 4V3Z" fill={color} stroke={color} strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconHistory({ size = 22, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none">
+      <path d="M3 11a8 8 0 1 0 2.3-5.6L3 8" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 3v5h5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M11 7v4.5l3 1.5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconMoon({ size = 22, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none">
+      <path d="M18 13.5A7.5 7.5 0 1 1 9.5 3a6 6 0 0 0 8.5 10.5Z" stroke={color} strokeWidth="1.8" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconSun({ size = 22, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none">
+      <circle cx="11" cy="11" r="4" stroke={color} strokeWidth="1.8" />
+      <path
+        d="M11 2v2M11 18v2M2 11h2M18 11h2M4.6 4.6l1.4 1.4M16 16l1.4 1.4M17.4 4.6L16 6M6 16l-1.4 1.4"
+        stroke={color}
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+export function IconInfoSmall({ size = 18, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 18 18" fill="none">
+      <circle cx="9" cy="9" r="7.2" stroke={color} strokeWidth="1.6" />
+      <path d="M9 8.2v4.3" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="9" cy="5.6" r="1" fill={color} />
+    </svg>
+  )
+}
+
+export function IconTrash({ size = 20, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <path d="M3 5h14M8 5V3.5A1.5 1.5 0 0 1 9.5 2h1A1.5 1.5 0 0 1 12 3.5V5M5 5l.8 11a1.5 1.5 0 0 0 1.5 1.4h5.4a1.5 1.5 0 0 0 1.5-1.4L15 5" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
