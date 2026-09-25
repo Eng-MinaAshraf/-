@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#14206b"/>
+      <stop offset="55%" stop-color="#0e1645"/>
+      <stop offset="100%" stop-color="#060b21"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="120" y1="80" x2="400" y2="440">
+      <stop offset="0%" stop-color="#f0d68a"/>
+      <stop offset="45%" stop-color="#c9a227"/>
+      <stop offset="100%" stop-color="#8f6f16"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a227" stop-opacity="0.28"/>
+      <stop offset="70%" stop-color="#c9a227" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="#c9a227" stroke-opacity="0.45" stroke-width="5"/>
+  <circle cx="256" cy="240" r="190" fill="url(#halo)"/>
+
+  <!-- Ornate Coptic cross (scaled from 48-unit design) -->
+  <g transform="translate(256 236) scale(6.2) translate(-24 -24)">
+    <path d="M24 4l4 6h-3v9h9v-3l6 4-6 4v-3h-9v13h3l-6 4-6-4h3V24h-9v3l-6-4 6-4v3h9V10h-3l4-6Z"
+          fill="url(#gold)" stroke="#f7e6b4" stroke-width="0.5" stroke-linejoin="round"/>
+    <path d="M24 20l3 4-3 4-3-4 3-4Z" fill="#0d1440" opacity="0.5"/>
+    <circle cx="12" cy="12" r="2" fill="url(#gold)"/>
+    <circle cx="36" cy="12" r="2" fill="url(#gold)"/>
+    <circle cx="12" cy="36" r="2" fill="url(#gold)"/>
+    <circle cx="36" cy="36" r="2" fill="url(#gold)"/>
+  </g>
+
+  <!-- "99" -->
+  <text x="256" y="452" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="88" font-weight="bold" fill="url(#gold)" letter-spacing="4">99</text>
+</svg>
